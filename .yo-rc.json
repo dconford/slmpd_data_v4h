@@ -35,6 +35,8 @@
     "dtoSuffix": "DTO",
     "otherModules": [],
     "enableTranslation": false,
-    "blueprints": []
+    "blueprints": [],
+    "herokuAppName": "slmpd-data-v-4-h",
+    "herokuDeployType": "git"
   }
 }
