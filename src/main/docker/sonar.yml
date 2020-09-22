@@ -1,0 +1,7 @@
+version: '2'
+services:
+  slmpd_data_v4h-sonar:
+    image: sonarqube:7.9.2-community
+    ports:
+      - 9001:9000
+      - 9092:9092

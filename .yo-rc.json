@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "org.launchcode.dataviz"
+    },
+    "jhipsterVersion": "6.7.1",
+    "applicationType": "monolith",
+    "baseName": "slmpd_data_v4h",
+    "packageName": "org.launchcode.dataviz",
+    "packageFolder": "org/launchcode/dataviz",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MjJkYThjMDdjZTY0NTZhZWE2YjRhODhkNGEwZGQzMjYzZjgwOWNlMjhlZWI4MWIwZTZkYjRiMDFmNmM1ZmExM2MyMThmYmRmNzg4ZTIzY2VjNTA4NjA5ZjRmZDMwMjA2YjQ3MmU0MWJjM2NhNDIyZDJjZDkzMTRlOGExZmU3NjY=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "materia",
+    "clientThemeVariant": "dark",
+    "creationTimestamp": 1600748493027,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}

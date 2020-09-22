@@ -1,0 +1,16 @@
+version: '2'
+services:
+  slmpd_data_v4h-app:
+    image: slmpd_data_v4h
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://slmpd_data_v4h-postgresql:5432/slmpd_data_v4h
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+    ports:
+      - 8080:8080
+  slmpd_data_v4h-postgresql:
+    extends:
+      file: postgresql.yml
+      service: slmpd_data_v4h-postgresql

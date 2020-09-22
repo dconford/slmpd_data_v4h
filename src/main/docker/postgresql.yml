@@ -1,0 +1,11 @@
+version: '2'
+services:
+  slmpd_data_v4h-postgresql:
+    image: postgres:12.1
+    # volumes:
+    #     - ~/volumes/jhipster/slmpd_data_v4h/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=slmpd_data_v4h
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
