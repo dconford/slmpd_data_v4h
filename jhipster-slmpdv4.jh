@@ -1,0 +1,77 @@
+entity CrimeCategories{
+	// crimeCategoryId Integer required,
+    crimeCategory String
+}
+
+entity Neighborhoods {
+	// neighborhoodId Integer required,
+    neighborhoodName String
+}
+
+entity CodedDates {
+	// codedDate Integer required,
+    codedDateString String
+}
+
+entity ReportedEvents {
+    complaintId String,
+    codedMonth String,
+    codedMonthAsInt Integer,
+    eventOccurred String,
+    newCrimeflag String,
+    crimeUnfoundedFlag String,
+    administrativeAdjustmentFlag String,
+    count Integer,
+    cleanupFlag String,
+    crimeCode Integer,
+    districtCode Integer,
+    eventDescription String,
+    ileadsAddressNumber String,
+    ileadsStreetName String,
+    neighborhoodCode Integer,
+    eventLocationName String,
+    eventLocationComment String,
+    cadStreetNumber String,
+    cadStreetName String,
+    xCoordinates String,
+    yCoordinates String,
+    crimeCategoryShortened Integer,
+    newDateField LocalDate
+}
+
+// relationship OneToMany {
+//  Owner{car} 
+// to Car{owner}
+// }
+
+relationship OneToMany {
+ 	CrimeCategories {ReportedEvents}
+	to ReportedEvents {CrimeCategories(crimeCategory)}
+}
+
+relationship OneToMany {
+	Neighborhoods {ReportedEvents}
+	to ReportedEvents {Neighborhoods(neighborhoodName)}
+}
+
+relationship OneToMany {
+	CodedDates {ReportedEvents}
+    to ReportedEvents {CodedDates(codedDateString)}
+}
+
+// defining multiple OneToMany relationships with comments
+
+// defining multiple oneToOne relationships
+
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+paginate ReportedEvents with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+// service all with serviceImpl
+// Set an angular suffix
+// angularSuffix * with mySuffix

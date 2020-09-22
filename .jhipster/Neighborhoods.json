@@ -1,0 +1,27 @@
+{
+    "name": "Neighborhoods",
+    "fields": [
+        {
+            "fieldName": "neighborhoodName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reportedEvents",
+            "otherEntityRelationshipName": "neighborhoods",
+            "relationshipName": "reportedEvents"
+        }
+    ],
+    "changelogDate": "20200922042800",
+    "entityTableName": "neighborhoods",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,130 @@
+{
+    "name": "ReportedEvents",
+    "fields": [
+        {
+            "fieldName": "complaintId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codedMonth",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codedMonthAsInt",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "eventOccurred",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "newCrimeflag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "crimeUnfoundedFlag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "administrativeAdjustmentFlag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "count",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cleanupFlag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "crimeCode",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "districtCode",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "eventDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ileadsAddressNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ileadsStreetName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "neighborhoodCode",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "eventLocationName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "eventLocationComment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cadStreetNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cadStreetName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "xCoordinates",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "yCoordinates",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "crimeCategoryShortened",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "newDateField",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "crimeCategories",
+            "otherEntityRelationshipName": "reportedEvents",
+            "relationshipName": "crimeCategories",
+            "otherEntityField": "crimeCategory"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "neighborhoods",
+            "otherEntityRelationshipName": "reportedEvents",
+            "relationshipName": "neighborhoods",
+            "otherEntityField": "neighborhoodName"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "codedDates",
+            "otherEntityRelationshipName": "reportedEvents",
+            "relationshipName": "codedDates",
+            "otherEntityField": "codedDateString"
+        }
+    ],
+    "changelogDate": "20200922043000",
+    "entityTableName": "reported_events",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

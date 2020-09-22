@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ReportedEvents.
+    -->
+    <changeSet id="20200922043000-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="crime_categories_id"
+                                 baseTableName="reported_events"
+                                 constraintName="fk_reported_events_crime_categories_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="crime_categories"/>
+
+        <addForeignKeyConstraint baseColumnNames="neighborhoods_id"
+                                 baseTableName="reported_events"
+                                 constraintName="fk_reported_events_neighborhoods_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="neighborhoods"/>
+
+        <addForeignKeyConstraint baseColumnNames="coded_dates_id"
+                                 baseTableName="reported_events"
+                                 constraintName="fk_reported_events_coded_dates_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="coded_dates"/>
+
+    </changeSet>
+</databaseChangeLog>

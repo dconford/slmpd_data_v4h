@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity ReportedEvents.
+    -->
+    <changeSet id="20200922043000-1" author="jhipster">
+        <createTable tableName="reported_events">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="complaint_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="coded_month" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="coded_month_as_int" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="event_occurred" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="new_crimeflag" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="crime_unfounded_flag" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="administrative_adjustment_flag" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="count" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="cleanup_flag" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="crime_code" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="district_code" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="event_description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="ileads_address_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="ileads_street_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="neighborhood_code" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="event_location_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="event_location_comment" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cad_street_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cad_street_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="x_coordinates" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="y_coordinates" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="crime_category_shortened" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="new_date_field" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="crime_categories_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="neighborhoods_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="coded_dates_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20200922043000-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20200922043000-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/reported_events.csv"
+                  separator=";"
+                  tableName="reported_events">
+            <column name="id" type="numeric"/>
+            <column name="complaint_id" type="string"/>
+            <column name="coded_month" type="string"/>
+            <column name="coded_month_as_int" type="numeric"/>
+            <column name="event_occurred" type="string"/>
+            <column name="new_crimeflag" type="string"/>
+            <column name="crime_unfounded_flag" type="string"/>
+            <column name="administrative_adjustment_flag" type="string"/>
+            <column name="count" type="numeric"/>
+            <column name="cleanup_flag" type="string"/>
+            <column name="crime_code" type="numeric"/>
+            <column name="district_code" type="numeric"/>
+            <column name="event_description" type="string"/>
+            <column name="ileads_address_number" type="string"/>
+            <column name="ileads_street_name" type="string"/>
+            <column name="neighborhood_code" type="numeric"/>
+            <column name="event_location_name" type="string"/>
+            <column name="event_location_comment" type="string"/>
+            <column name="cad_street_number" type="string"/>
+            <column name="cad_street_name" type="string"/>
+            <column name="x_coordinates" type="string"/>
+            <column name="y_coordinates" type="string"/>
+            <column name="crime_category_shortened" type="numeric"/>
+            <column name="new_date_field" type="date"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,192 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-reported-events-heading">Create or edit a Reported Events</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_complaintId">Complaint Id</label>
+                    <input type="text" class="form-control" name="complaintId" id="field_complaintId"
+                           formControlName="complaintId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codedMonth">Coded Month</label>
+                    <input type="text" class="form-control" name="codedMonth" id="field_codedMonth"
+                           formControlName="codedMonth"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codedMonthAsInt">Coded Month As Int</label>
+                    <input type="number" class="form-control" name="codedMonthAsInt" id="field_codedMonthAsInt"
+                           formControlName="codedMonthAsInt"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_eventOccurred">Event Occurred</label>
+                    <input type="text" class="form-control" name="eventOccurred" id="field_eventOccurred"
+                           formControlName="eventOccurred"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_newCrimeflag">New Crimeflag</label>
+                    <input type="text" class="form-control" name="newCrimeflag" id="field_newCrimeflag"
+                           formControlName="newCrimeflag"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_crimeUnfoundedFlag">Crime Unfounded Flag</label>
+                    <input type="text" class="form-control" name="crimeUnfoundedFlag" id="field_crimeUnfoundedFlag"
+                           formControlName="crimeUnfoundedFlag"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_administrativeAdjustmentFlag">Administrative Adjustment Flag</label>
+                    <input type="text" class="form-control" name="administrativeAdjustmentFlag" id="field_administrativeAdjustmentFlag"
+                           formControlName="administrativeAdjustmentFlag"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_count">Count</label>
+                    <input type="number" class="form-control" name="count" id="field_count"
+                           formControlName="count"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cleanupFlag">Cleanup Flag</label>
+                    <input type="text" class="form-control" name="cleanupFlag" id="field_cleanupFlag"
+                           formControlName="cleanupFlag"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_crimeCode">Crime Code</label>
+                    <input type="number" class="form-control" name="crimeCode" id="field_crimeCode"
+                           formControlName="crimeCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_districtCode">District Code</label>
+                    <input type="number" class="form-control" name="districtCode" id="field_districtCode"
+                           formControlName="districtCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_eventDescription">Event Description</label>
+                    <input type="text" class="form-control" name="eventDescription" id="field_eventDescription"
+                           formControlName="eventDescription"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ileadsAddressNumber">Ileads Address Number</label>
+                    <input type="text" class="form-control" name="ileadsAddressNumber" id="field_ileadsAddressNumber"
+                           formControlName="ileadsAddressNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ileadsStreetName">Ileads Street Name</label>
+                    <input type="text" class="form-control" name="ileadsStreetName" id="field_ileadsStreetName"
+                           formControlName="ileadsStreetName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_neighborhoodCode">Neighborhood Code</label>
+                    <input type="number" class="form-control" name="neighborhoodCode" id="field_neighborhoodCode"
+                           formControlName="neighborhoodCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_eventLocationName">Event Location Name</label>
+                    <input type="text" class="form-control" name="eventLocationName" id="field_eventLocationName"
+                           formControlName="eventLocationName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_eventLocationComment">Event Location Comment</label>
+                    <input type="text" class="form-control" name="eventLocationComment" id="field_eventLocationComment"
+                           formControlName="eventLocationComment"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cadStreetNumber">Cad Street Number</label>
+                    <input type="text" class="form-control" name="cadStreetNumber" id="field_cadStreetNumber"
+                           formControlName="cadStreetNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cadStreetName">Cad Street Name</label>
+                    <input type="text" class="form-control" name="cadStreetName" id="field_cadStreetName"
+                           formControlName="cadStreetName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_xCoordinates">X Coordinates</label>
+                    <input type="text" class="form-control" name="xCoordinates" id="field_xCoordinates"
+                           formControlName="xCoordinates"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_yCoordinates">Y Coordinates</label>
+                    <input type="text" class="form-control" name="yCoordinates" id="field_yCoordinates"
+                           formControlName="yCoordinates"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_crimeCategoryShortened">Crime Category Shortened</label>
+                    <input type="number" class="form-control" name="crimeCategoryShortened" id="field_crimeCategoryShortened"
+                           formControlName="crimeCategoryShortened"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_newDateField">New Date Field</label>
+                    <div class="input-group">
+                        <input id="field_newDateField" type="text" class="form-control" name="newDateField" ngbDatepicker #newDateFieldDp="ngbDatepicker" formControlName="newDateField"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="newDateFieldDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_crimeCategories">Crime Categories</label>
+                    <select class="form-control" id="field_crimeCategories" name="crimeCategories" formControlName="crimeCategories">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="crimeCategoriesOption.id === editForm.get('crimeCategories')!.value?.id ? editForm.get('crimeCategories')!.value : crimeCategoriesOption" *ngFor="let crimeCategoriesOption of crimecategories; trackBy: trackById">{{ crimeCategoriesOption.crimeCategory }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_neighborhoods">Neighborhoods</label>
+                    <select class="form-control" id="field_neighborhoods" name="neighborhoods" formControlName="neighborhoods">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="neighborhoodsOption.id === editForm.get('neighborhoods')!.value?.id ? editForm.get('neighborhoods')!.value : neighborhoodsOption" *ngFor="let neighborhoodsOption of neighborhoods; trackBy: trackById">{{ neighborhoodsOption.neighborhoodName }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codedDates">Coded Dates</label>
+                    <select class="form-control" id="field_codedDates" name="codedDates" formControlName="codedDates">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="codedDatesOption.id === editForm.get('codedDates')!.value?.id ? editForm.get('codedDates')!.value : codedDatesOption" *ngFor="let codedDatesOption of codeddates; trackBy: trackById">{{ codedDatesOption.codedDateString }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

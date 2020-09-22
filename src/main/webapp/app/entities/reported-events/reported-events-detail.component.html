@@ -1,0 +1,136 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reportedEvents">
+            <h2><span>Reported Events</span> {{ reportedEvents.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Complaint Id</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.complaintId }}</span>
+                </dd>
+                <dt><span>Coded Month</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.codedMonth }}</span>
+                </dd>
+                <dt><span>Coded Month As Int</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.codedMonthAsInt }}</span>
+                </dd>
+                <dt><span>Event Occurred</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.eventOccurred }}</span>
+                </dd>
+                <dt><span>New Crimeflag</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.newCrimeflag }}</span>
+                </dd>
+                <dt><span>Crime Unfounded Flag</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.crimeUnfoundedFlag }}</span>
+                </dd>
+                <dt><span>Administrative Adjustment Flag</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.administrativeAdjustmentFlag }}</span>
+                </dd>
+                <dt><span>Count</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.count }}</span>
+                </dd>
+                <dt><span>Cleanup Flag</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.cleanupFlag }}</span>
+                </dd>
+                <dt><span>Crime Code</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.crimeCode }}</span>
+                </dd>
+                <dt><span>District Code</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.districtCode }}</span>
+                </dd>
+                <dt><span>Event Description</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.eventDescription }}</span>
+                </dd>
+                <dt><span>Ileads Address Number</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.ileadsAddressNumber }}</span>
+                </dd>
+                <dt><span>Ileads Street Name</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.ileadsStreetName }}</span>
+                </dd>
+                <dt><span>Neighborhood Code</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.neighborhoodCode }}</span>
+                </dd>
+                <dt><span>Event Location Name</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.eventLocationName }}</span>
+                </dd>
+                <dt><span>Event Location Comment</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.eventLocationComment }}</span>
+                </dd>
+                <dt><span>Cad Street Number</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.cadStreetNumber }}</span>
+                </dd>
+                <dt><span>Cad Street Name</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.cadStreetName }}</span>
+                </dd>
+                <dt><span>X Coordinates</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.xCoordinates }}</span>
+                </dd>
+                <dt><span>Y Coordinates</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.yCoordinates }}</span>
+                </dd>
+                <dt><span>Crime Category Shortened</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.crimeCategoryShortened }}</span>
+                </dd>
+                <dt><span>New Date Field</span></dt>
+                <dd>
+                    <span>{{ reportedEvents.newDateField }}</span>
+                </dd>
+                <dt><span>Crime Categories</span></dt>
+                <dd>
+                    <div *ngIf="reportedEvents.crimeCategories">
+                        <a [routerLink]="['/crime-categories', reportedEvents.crimeCategories?.id, 'view']">{{ reportedEvents.crimeCategories?.crimeCategory }}</a>
+                    </div>
+                </dd>
+                <dt><span>Neighborhoods</span></dt>
+                <dd>
+                    <div *ngIf="reportedEvents.neighborhoods">
+                        <a [routerLink]="['/neighborhoods', reportedEvents.neighborhoods?.id, 'view']">{{ reportedEvents.neighborhoods?.neighborhoodName }}</a>
+                    </div>
+                </dd>
+                <dt><span>Coded Dates</span></dt>
+                <dd>
+                    <div *ngIf="reportedEvents.codedDates">
+                        <a [routerLink]="['/coded-dates', reportedEvents.codedDates?.id, 'view']">{{ reportedEvents.codedDates?.codedDateString }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reported-events', reportedEvents.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+<div>
+    <h2 id="page-heading">
+        <span>Reported Events</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-reported-events" [routerLink]="['/reported-events/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Reported Events
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="reportedEvents?.length === 0">
+        <span>No reportedEvents found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="reportedEvents?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="complaintId"><span>Complaint Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codedMonth"><span>Coded Month</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codedMonthAsInt"><span>Coded Month As Int</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="eventOccurred"><span>Event Occurred</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="newCrimeflag"><span>New Crimeflag</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="crimeUnfoundedFlag"><span>Crime Unfounded Flag</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="administrativeAdjustmentFlag"><span>Administrative Adjustment Flag</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="count"><span>Count</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cleanupFlag"><span>Cleanup Flag</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="crimeCode"><span>Crime Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="districtCode"><span>District Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="eventDescription"><span>Event Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ileadsAddressNumber"><span>Ileads Address Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ileadsStreetName"><span>Ileads Street Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="neighborhoodCode"><span>Neighborhood Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="eventLocationName"><span>Event Location Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="eventLocationComment"><span>Event Location Comment</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cadStreetNumber"><span>Cad Street Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cadStreetName"><span>Cad Street Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="xCoordinates"><span>X Coordinates</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="yCoordinates"><span>Y Coordinates</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="crimeCategoryShortened"><span>Crime Category Shortened</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="newDateField"><span>New Date Field</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="crimeCategories.crimeCategory"><span>Crime Categories</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="neighborhoods.neighborhoodName"><span>Neighborhoods</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codedDates.codedDateString"><span>Coded Dates</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reportedEvents of reportedEvents ;trackBy: trackId">
+                    <td><a [routerLink]="['/reported-events', reportedEvents.id, 'view']">{{ reportedEvents.id }}</a></td>
+                    <td>{{ reportedEvents.complaintId }}</td>
+                    <td>{{ reportedEvents.codedMonth }}</td>
+                    <td>{{ reportedEvents.codedMonthAsInt }}</td>
+                    <td>{{ reportedEvents.eventOccurred }}</td>
+                    <td>{{ reportedEvents.newCrimeflag }}</td>
+                    <td>{{ reportedEvents.crimeUnfoundedFlag }}</td>
+                    <td>{{ reportedEvents.administrativeAdjustmentFlag }}</td>
+                    <td>{{ reportedEvents.count }}</td>
+                    <td>{{ reportedEvents.cleanupFlag }}</td>
+                    <td>{{ reportedEvents.crimeCode }}</td>
+                    <td>{{ reportedEvents.districtCode }}</td>
+                    <td>{{ reportedEvents.eventDescription }}</td>
+                    <td>{{ reportedEvents.ileadsAddressNumber }}</td>
+                    <td>{{ reportedEvents.ileadsStreetName }}</td>
+                    <td>{{ reportedEvents.neighborhoodCode }}</td>
+                    <td>{{ reportedEvents.eventLocationName }}</td>
+                    <td>{{ reportedEvents.eventLocationComment }}</td>
+                    <td>{{ reportedEvents.cadStreetNumber }}</td>
+                    <td>{{ reportedEvents.cadStreetName }}</td>
+                    <td>{{ reportedEvents.xCoordinates }}</td>
+                    <td>{{ reportedEvents.yCoordinates }}</td>
+                    <td>{{ reportedEvents.crimeCategoryShortened }}</td>
+                    <td>{{ reportedEvents.newDateField | date:'mediumDate' }}</td>
+                    <td>
+                        <div *ngIf="reportedEvents.crimeCategories">
+                            <a [routerLink]="['/crime-categories', reportedEvents.crimeCategories?.id, 'view']" >{{ reportedEvents.crimeCategories?.crimeCategory }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="reportedEvents.neighborhoods">
+                            <a [routerLink]="['/neighborhoods', reportedEvents.neighborhoods?.id, 'view']" >{{ reportedEvents.neighborhoods?.neighborhoodName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="reportedEvents.codedDates">
+                            <a [routerLink]="['/coded-dates', reportedEvents.codedDates?.id, 'view']" >{{ reportedEvents.codedDates?.codedDateString }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/reported-events', reportedEvents.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/reported-events', reportedEvents.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(reportedEvents)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="reportedEvents?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

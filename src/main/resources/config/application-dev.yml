@@ -54,12 +54,18 @@ spring:
       hibernate.generate_statistics: false
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
-    contexts: dev, faker
+    contexts: dev
   mail:
-    host: localhost
-    port: 25
-    username:
-    password:
+    host: smtp.gmail.com #localhost (original setting)
+    port: 587 # 25 (original setting)
+    username: danielconford@gmail.com
+    password: ggvnrxokpmdjgeml
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:

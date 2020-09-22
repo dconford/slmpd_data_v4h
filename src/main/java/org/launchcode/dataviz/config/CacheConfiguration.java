@@ -42,6 +42,13 @@ public class CacheConfiguration {
             createCache(cm, org.launchcode.dataviz.domain.User.class.getName());
             createCache(cm, org.launchcode.dataviz.domain.Authority.class.getName());
             createCache(cm, org.launchcode.dataviz.domain.User.class.getName() + ".authorities");
+            createCache(cm, org.launchcode.dataviz.domain.CrimeCategories.class.getName());
+            createCache(cm, org.launchcode.dataviz.domain.CrimeCategories.class.getName() + ".reportedEvents");
+            createCache(cm, org.launchcode.dataviz.domain.Neighborhoods.class.getName());
+            createCache(cm, org.launchcode.dataviz.domain.Neighborhoods.class.getName() + ".reportedEvents");
+            createCache(cm, org.launchcode.dataviz.domain.CodedDates.class.getName());
+            createCache(cm, org.launchcode.dataviz.domain.CodedDates.class.getName() + ".reportedEvents");
+            createCache(cm, org.launchcode.dataviz.domain.ReportedEvents.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
