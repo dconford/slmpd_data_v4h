@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -111,6 +112,58 @@ public class ReportedEventsResource {
         Optional<ReportedEvents> reportedEvents = reportedEventsRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(reportedEvents);
     }
+
+    /**
+     * {@code GET  /reported-events/counts} : get count of reportedEvents.
+     *
+     * @return the {count} with status {@code 200 (OK)} and the count of reportedEvents in body.
+     */
+    @GetMapping("reported-events/counts")
+    public Long count() {
+        Long count = reportedEventsRepository.count();
+        return count;
+    }
+
+    /**
+     * {@code GET  /reported-events/counts/categories} : get count of reportedEvents, ordered by crimeCategories.
+     *
+     * @return the {resultbucket} with status {@code 200 (OK)} and the count of reportedEvents, ordered by
+     *  crimeCategories in body.
+     */
+    @GetMapping("reported-events/counts/categories")
+    public List<ArrayList<Long>>countsByCrimeCategories() {
+        List<ArrayList<Long>> resultbucket = reportedEventsRepository.countsByCrimeCategories();
+        return resultbucket;
+    }
+
+    /**
+     * {@code GET  /reported-events/counts/categories/neighborhoods} : get count of reportedEvents in a single
+     * neighborhood, ordered by crimeCategories.
+     *
+     * @param neighborhoodCode
+     * @return the {resultbucket} with status {@code 200 (OK)} and the count of reportedEvents in a single neighborhood,
+     * ordered by crimeCategories in body.
+     */
+    @GetMapping("reported-events/counts/categories/neighborhoods")
+    public List<ArrayList<Long>> countsByCrimeCategoriesBySingleNeighborhood(Integer neighborhoodCode) {
+        List<ArrayList<Long>> resultbucket = reportedEventsRepository.countsByCrimeCategoriesBySingleNeighborhood(neighborhoodCode);
+        return resultbucket;
+    }
+
+    /**
+     *
+     * @param neighborhoodCode
+     * @param codedDates
+     * @return
+     */
+    @GetMapping("reported-events/counts/categories/neighborhoodsbydate")
+    public List<ArrayList<Long>> countsByCrimeCategoriesBySingleNeighborhoodAndDat(Integer neighborhoodCode, Integer codedDates) {
+        List<ArrayList<Long>> resultbucket = reportedEventsRepository.countsByCrimeCategoriesBySingleNeighborhoodAndDate(neighborhoodCode, codedDates);
+        return resultbucket;
+    }
+
+
+
 
     /**
      * {@code DELETE  /reported-events/:id} : delete the "id" reportedEvents.
